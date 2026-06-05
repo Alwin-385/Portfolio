@@ -1,0 +1,30 @@
+/** Design tokens and responsive utilities — imported via globals.css */
+
+@theme inline {
+  /* Custom mobile-first breakpoints */
+  --breakpoint-xs: 20rem; /* 320px */
+  --breakpoint-sm: 23.4375rem; /* 375px */
+  --breakpoint-mobile: 24.375rem; /* 390px */
+  --breakpoint-md: 48rem; /* 768px */
+  --breakpoint-lg: 64rem; /* 1024px */
+  --breakpoint-xl: 90rem; /* 1440px */
+  --breakpoint-2xl: 120rem; /* 1920px */
+
+  --container-xs: 20rem;
+  --container-sm: 24rem;
+  --container-md: 48rem;
+  --container-lg: 64rem;
+  --container-xl: 90rem;
+  --container-2xl: 87.5rem;
+}
+
+@utility container-responsive {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 5rem);
+  max-width: var(--container-2xl);
+}
+
+@utility section-padding-y {
+  padding-block: clamp(4rem, 8vw, 7rem);
+}
