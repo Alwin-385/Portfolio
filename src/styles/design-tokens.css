@@ -1,0 +1,291 @@
+/**
+ * Premium Design System Tokens
+ * Direction: 70% Linear · 20% Apple · 10% Raycast
+ */
+
+@theme inline {
+  /* ── Spacing Scale ── */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+
+  /* Responsive spacing (fluid) */
+  --spacing-section: clamp(4rem, 8vw, 7rem);
+  --spacing-stack: clamp(1rem, 2vw, 1.5rem);
+  --spacing-inline: clamp(1rem, 4vw, 5rem);
+
+  /* ── Typography Scale (clamp) ── */
+  --text-hero: clamp(2.5rem, 5vw + 1rem, 4.5rem);
+  --text-section: clamp(1.75rem, 3vw + 0.5rem, 2.75rem);
+  --text-card-title: clamp(1.125rem, 1.5vw + 0.5rem, 1.375rem);
+  --text-body: clamp(0.9375rem, 0.5vw + 0.875rem, 1.0625rem);
+  --text-description: clamp(0.875rem, 0.4vw + 0.8125rem, 1rem);
+  --text-metadata: clamp(0.75rem, 0.25vw + 0.7rem, 0.8125rem);
+  --text-label: clamp(0.6875rem, 0.2vw + 0.65rem, 0.75rem);
+
+  --leading-hero: 1.05;
+  --leading-section: 1.15;
+  --leading-card: 1.3;
+  --leading-body: 1.65;
+  --leading-tight: 1.25;
+
+  --tracking-hero: -0.04em;
+  --tracking-section: -0.03em;
+  --tracking-card: -0.02em;
+  --tracking-label: 0.08em;
+
+  /* ── Background Layers ── */
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-elevated: var(--bg-elevated);
+
+  /* ── Accent Colors ── */
+  --color-accent-blue: var(--accent-blue);
+  --color-accent-purple: var(--accent-purple);
+  --color-accent-blue-muted: var(--accent-blue-muted);
+  --color-accent-purple-muted: var(--accent-purple-muted);
+
+  /* ── Border Tokens ── */
+  --color-border-subtle: var(--border-subtle);
+  --color-border-default: var(--border-default);
+  --color-border-strong: var(--border-strong);
+  --color-border-accent: var(--border-accent);
+
+  /* ── Shadow Tokens ── */
+  --shadow-xs: var(--elevation-xs);
+  --shadow-sm: var(--elevation-sm);
+  --shadow-md: var(--elevation-md);
+  --shadow-lg: var(--elevation-lg);
+  --shadow-xl: var(--elevation-xl);
+  --shadow-glow-blue: var(--glow-blue);
+  --shadow-glow-purple: var(--glow-purple);
+
+  /* ── Radius Tokens ── */
+  --radius-button: var(--radius-button-token);
+  --radius-card: var(--radius-card-token);
+  --radius-badge: var(--radius-badge-token);
+  --radius-tag: var(--radius-tag-token);
+}
+
+:root {
+  /* Backgrounds */
+  --bg-primary: oklch(0.985 0.002 260);
+  --bg-secondary: oklch(0.97 0.004 260);
+  --bg-elevated: oklch(1 0 0);
+
+  /* Accents */
+  --accent-blue: oklch(0.55 0.2 255);
+  --accent-purple: oklch(0.52 0.22 295);
+  --accent-blue-muted: oklch(0.55 0.2 255 / 12%);
+  --accent-purple-muted: oklch(0.52 0.22 295 / 12%);
+
+  /* Borders */
+  --border-subtle: oklch(0.145 0 0 / 6%);
+  --border-default: oklch(0.145 0 0 / 10%);
+  --border-strong: oklch(0.145 0 0 / 16%);
+  --border-accent: oklch(0.55 0.2 255 / 30%);
+
+  /* Gradients */
+  --gradient-accent: linear-gradient(
+    135deg,
+    oklch(0.55 0.2 255) 0%,
+    oklch(0.52 0.22 295) 100%
+  );
+  --gradient-accent-subtle: linear-gradient(
+    135deg,
+    oklch(0.55 0.2 255 / 8%) 0%,
+    oklch(0.52 0.22 295 / 8%) 100%
+  );
+  --gradient-surface: linear-gradient(
+    180deg,
+    oklch(1 0 0) 0%,
+    oklch(0.97 0.004 260) 100%
+  );
+  --gradient-border: linear-gradient(
+    135deg,
+    oklch(0.55 0.2 255 / 40%) 0%,
+    oklch(0.52 0.22 295 / 20%) 50%,
+    oklch(0.145 0 0 / 10%) 100%
+  );
+  --gradient-glow: radial-gradient(
+    ellipse 80% 50% at 50% -20%,
+    oklch(0.55 0.2 255 / 15%) 0%,
+    transparent 70%
+  );
+
+  /* Elevation */
+  --elevation-xs: 0 1px 2px oklch(0.145 0 0 / 4%);
+  --elevation-sm: 0 2px 8px oklch(0.145 0 0 / 6%);
+  --elevation-md: 0 4px 16px oklch(0.145 0 0 / 8%);
+  --elevation-lg: 0 8px 32px oklch(0.145 0 0 / 10%);
+  --elevation-xl: 0 16px 48px oklch(0.145 0 0 / 12%);
+  --glow-blue: 0 0 24px oklch(0.55 0.2 255 / 20%);
+  --glow-purple: 0 0 24px oklch(0.52 0.22 295 / 20%);
+
+  /* Radius */
+  --radius-button-token: 0.5rem;
+  --radius-card-token: 0.875rem;
+  --radius-badge-token: 9999px;
+  --radius-tag-token: 0.375rem;
+}
+
+.dark {
+  --bg-primary: oklch(0.1 0.008 260);
+  --bg-secondary: oklch(0.13 0.01 260);
+  --bg-elevated: oklch(0.17 0.012 260);
+
+  --accent-blue: oklch(0.68 0.16 250);
+  --accent-purple: oklch(0.65 0.18 290);
+  --accent-blue-muted: oklch(0.68 0.16 250 / 14%);
+  --accent-purple-muted: oklch(0.65 0.18 290 / 14%);
+
+  --border-subtle: oklch(1 0 0 / 6%);
+  --border-default: oklch(1 0 0 / 10%);
+  --border-strong: oklch(1 0 0 / 16%);
+  --border-accent: oklch(0.68 0.16 250 / 35%);
+
+  --gradient-accent: linear-gradient(
+    135deg,
+    oklch(0.68 0.16 250) 0%,
+    oklch(0.65 0.18 290) 100%
+  );
+  --gradient-accent-subtle: linear-gradient(
+    135deg,
+    oklch(0.68 0.16 250 / 10%) 0%,
+    oklch(0.65 0.18 290 / 10%) 100%
+  );
+  --gradient-surface: linear-gradient(
+    180deg,
+    oklch(0.17 0.012 260) 0%,
+    oklch(0.13 0.01 260) 100%
+  );
+  --gradient-border: linear-gradient(
+    135deg,
+    oklch(0.68 0.16 250 / 50%) 0%,
+    oklch(0.65 0.18 290 / 25%) 50%,
+    oklch(1 0 0 / 8%) 100%
+  );
+  --gradient-glow: radial-gradient(
+    ellipse 80% 50% at 50% -20%,
+    oklch(0.68 0.16 250 / 12%) 0%,
+    transparent 70%
+  );
+
+  --elevation-xs: 0 1px 2px oklch(0 0 0 / 30%);
+  --elevation-sm: 0 2px 8px oklch(0 0 0 / 35%);
+  --elevation-md: 0 4px 16px oklch(0 0 0 / 40%);
+  --elevation-lg: 0 8px 32px oklch(0 0 0 / 45%);
+  --elevation-xl: 0 16px 48px oklch(0 0 0 / 50%);
+  --glow-blue: 0 0 32px oklch(0.68 0.16 250 / 25%);
+  --glow-purple: 0 0 32px oklch(0.65 0.18 290 / 25%);
+}
+
+/* ── Typography Utilities ── */
+@utility text-hero {
+  font-size: var(--text-hero);
+  line-height: var(--leading-hero);
+  letter-spacing: var(--tracking-hero);
+  font-weight: 600;
+}
+
+@utility text-section-title {
+  font-size: var(--text-section);
+  line-height: var(--leading-section);
+  letter-spacing: var(--tracking-section);
+  font-weight: 600;
+}
+
+@utility text-card-title {
+  font-size: var(--text-card-title);
+  line-height: var(--leading-card);
+  letter-spacing: var(--tracking-card);
+  font-weight: 500;
+}
+
+@utility text-body {
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  font-weight: 400;
+}
+
+@utility text-description {
+  font-size: var(--text-description);
+  line-height: var(--leading-body);
+  font-weight: 400;
+  color: var(--muted-foreground);
+}
+
+@utility text-metadata {
+  font-size: var(--text-metadata);
+  line-height: var(--leading-tight);
+  font-weight: 400;
+  color: var(--muted-foreground);
+}
+
+@utility text-label {
+  font-size: var(--text-label);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-label);
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+
+/* ── Surface Utilities ── */
+@utility bg-surface-primary {
+  background-color: var(--bg-primary);
+}
+
+@utility bg-surface-secondary {
+  background-color: var(--bg-secondary);
+}
+
+@utility bg-surface-elevated {
+  background-color: var(--bg-elevated);
+}
+
+@utility border-subtle {
+  border-color: var(--border-subtle);
+}
+
+@utility border-default {
+  border-color: var(--border-default);
+}
+
+@utility shadow-elevation-sm {
+  box-shadow: var(--elevation-sm);
+}
+
+@utility shadow-elevation-md {
+  box-shadow: var(--elevation-md);
+}
+
+@utility shadow-glow-accent {
+  box-shadow: var(--glow-blue);
+}
+
+@utility gradient-accent {
+  background: var(--gradient-accent);
+}
+
+@utility gradient-accent-text {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility gradient-accent-subtle {
+  background: var(--gradient-accent-subtle);
+}
+
+@utility gradient-border {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(var(--bg-elevated), var(--bg-elevated)) padding-box,
+    var(--gradient-border) border-box;
+}
