@@ -1,10 +1,16 @@
 import type { ReactNode } from "react";
 import type { Variants } from "motion/react";
 
+export type HeroTagline = {
+  primary: string;
+  accent: string;
+};
+
 export type SiteConfig = {
   name: string;
   role: string;
   tagline: string;
+  heroTagline: HeroTagline;
   description: string;
   heroDescription: string;
   url: string;

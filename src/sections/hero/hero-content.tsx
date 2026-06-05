@@ -80,9 +80,14 @@ export function HeroContent({ className }: HeroContentProps) {
             aria-hidden
           />
 
-          <p className="hero-tagline text-center text-pretty">
-            {siteConfig.tagline}
-          </p>
+          <div className="hero-tagline" aria-label={siteConfig.tagline}>
+            <span className="hero-tagline-primary block">
+              {siteConfig.heroTagline.primary}
+            </span>
+            <span className="hero-tagline-accent block gradient-accent-text">
+              {siteConfig.heroTagline.accent}
+            </span>
+          </div>
 
           <div className="hero-description-panel">
             <p className="hero-description text-center text-pretty">

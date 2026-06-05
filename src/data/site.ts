@@ -4,6 +4,10 @@ export const siteConfig: SiteConfig = {
   name: "Alwin Baby",
   role: "Full-Stack Developer",
   tagline: "Building AI-Powered Web Applications",
+  heroTagline: {
+    primary: "Building AI-Powered",
+    accent: "Web Applications",
+  },
   description:
     "Portfolio of Alwin Baby — Full-Stack Developer specializing in AI-powered web applications, modern React ecosystems, and production-grade digital experiences.",
   heroDescription:
