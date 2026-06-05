@@ -203,7 +203,7 @@ export default function HomePage() {
         {/* Design system preview — dev reference */}
         <SectionContainer id="design-system" label="Design System">
           <AnimationWrapper preset="fadeInUp">
-            <div className="space-y-md rounded-[var(--radius-card-token)] border border-default bg-bg-secondary p-xl">
+            <div className="space-y-md rounded-[var(--radius-card-token)] border border-default bg-bg-secondary p-ds-xl">
               <SectionTitle as="h3">Design System</SectionTitle>
               <DescriptionText>
                 Typography, buttons, badges, and cards from Phase 2 — preserved

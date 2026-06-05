@@ -33,7 +33,7 @@ export function HeroContent({ className }: HeroContentProps) {
   return (
     <div
       className={cn(
-        "relative z-10 mx-auto w-full max-w-4xl px-4 sm:px-6 lg:px-8",
+        "relative z-10 mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8",
         className,
       )}
     >
@@ -72,15 +72,15 @@ export function HeroContent({ className }: HeroContentProps) {
 
         {/* Tagline + Description */}
         <m.div
-          className="mx-auto w-full max-w-2xl space-y-5"
+          className="mx-auto w-full max-w-3xl space-y-6 md:space-y-8"
           variants={prefersReducedMotion ? undefined : heroStaggerItem}
         >
           <div
-            className="mx-auto h-px w-16 bg-gradient-to-r from-transparent via-accent-blue/60 to-transparent"
+            className="mx-auto h-px w-20 bg-gradient-to-r from-transparent via-accent-blue/60 to-transparent md:w-24"
             aria-hidden
           />
 
-          <div className="hero-tagline" aria-label={siteConfig.tagline}>
+          <div className="hero-tagline w-full" aria-label={siteConfig.tagline}>
             <span className="hero-tagline-primary block">
               {siteConfig.heroTagline.primary}
             </span>
@@ -89,8 +89,8 @@ export function HeroContent({ className }: HeroContentProps) {
             </span>
           </div>
 
-          <div className="hero-description-panel">
-            <p className="hero-description text-center text-pretty">
+          <div className="hero-description-panel w-full">
+            <p className="hero-description w-full text-pretty md:text-center">
               {siteConfig.heroDescription}
             </p>
           </div>

@@ -14,6 +14,7 @@
   --container-sm: 24rem;
   --container-md: 48rem;
   --container-lg: 64rem;
+  /* Layout containers — also affect max-w-xl / max-w-2xl utilities in Tailwind v4 */
   --container-xl: 90rem;
   --container-2xl: 87.5rem;
 }

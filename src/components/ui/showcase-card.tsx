@@ -31,7 +31,7 @@ export function ShowcaseCard({
   return (
     <article
       className={cn(
-        "relative overflow-hidden rounded-[var(--radius-card-token)] p-xl",
+        "relative overflow-hidden rounded-[var(--radius-card-token)] p-ds-xl",
         "gradient-border shadow-elevation-md",
         "transition-all duration-300 hover:shadow-elevation-lg hover:shadow-glow-accent",
         className,
