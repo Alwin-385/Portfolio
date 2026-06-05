@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 
+import { Navbar } from "@/components/navigation";
 import { cn } from "@/lib/utils";
 import { CONTAINER_WIDTH, SECTION_SPACING } from "@/lib/constants";
 import type { PageWrapperProps } from "@/types";
@@ -18,6 +19,7 @@ export function PageWrapper({ className, children }: PageWrapperProps) {
       >
         Skip to main content
       </a>
+      <Navbar />
       {children}
     </div>
   );

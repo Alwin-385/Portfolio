@@ -64,3 +64,16 @@ export type PageWrapperProps = {
 };
 
 export type MotionVariantMap = Record<AnimationPreset, Variants>;
+
+export type NavItem = {
+  label: string;
+  href: string;
+};
+
+export type SocialIcon = "github" | "linkedin";
+
+export type SocialLink = {
+  label: string;
+  href: string;
+  icon: SocialIcon;
+};
