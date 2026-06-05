@@ -6,6 +6,7 @@ export type SiteConfig = {
   role: string;
   tagline: string;
   description: string;
+  heroDescription: string;
   url: string;
   locale: string;
   author: {

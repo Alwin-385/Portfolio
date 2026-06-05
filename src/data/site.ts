@@ -6,6 +6,8 @@ export const siteConfig: SiteConfig = {
   tagline: "Building AI-Powered Web Applications",
   description:
     "Portfolio of Alwin Baby — Full-Stack Developer specializing in AI-powered web applications, modern React ecosystems, and production-grade digital experiences.",
+  heroDescription:
+    "Final-year Computer Science student passionate about building intelligent, scalable, and impactful digital experiences.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://alwinbaby.dev",
   locale: "en_US",
   author: {

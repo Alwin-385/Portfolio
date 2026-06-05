@@ -3,6 +3,7 @@ import { Code2, Layers, Sparkles } from "lucide-react";
 import { AnimationWrapper } from "@/components/animation/animation-wrapper";
 import { PageWrapper } from "@/components/layout/page-wrapper";
 import { SectionContainer } from "@/components/layout/section-container";
+import { HeroSection } from "@/sections/hero";
 import { Badge } from "@/components/ui/badge";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { ProjectCard } from "@/components/ui/project-card";
@@ -21,37 +22,8 @@ import { siteConfig } from "@/data/site";
 export default function HomePage() {
   return (
     <PageWrapper>
-      <div
-        className="pointer-events-none fixed inset-x-0 top-0 h-[480px] bg-[var(--gradient-glow)]"
-        aria-hidden
-      />
-
-      <main id="main-content" className="relative flex flex-1 flex-col pt-[72px]">
-        {/* Hero */}
-        <SectionContainer id="hero" label="Home">
-          <AnimationWrapper preset="fadeInUp">
-            <header className="mx-auto max-w-3xl space-y-lg py-8 text-center md:py-16">
-              <LabelText>Full-Stack Developer</LabelText>
-              <HeroTitle>
-                <span className="gradient-accent-text">{siteConfig.name}</span>
-              </HeroTitle>
-              <BodyText className="text-muted-foreground">
-                {siteConfig.role} · {siteConfig.tagline}
-              </BodyText>
-              <DescriptionText className="mx-auto max-w-xl">
-                {siteConfig.description}
-              </DescriptionText>
-              <div className="flex flex-wrap items-center justify-center gap-md pt-md">
-                <a href="#projects" className={buttonVariants({ variant: "accent" })}>
-                  View Projects
-                </a>
-                <a href="#contact" className={buttonVariants({ variant: "secondary" })}>
-                  Get in Touch
-                </a>
-              </div>
-            </header>
-          </AnimationWrapper>
-        </SectionContainer>
+      <main id="main-content" className="relative flex flex-1 flex-col">
+        <HeroSection />
 
         {/* About */}
         <SectionContainer id="about" label="About">
