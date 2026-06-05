@@ -33,16 +33,19 @@ export function HeroContent({ className }: HeroContentProps) {
   return (
     <div
       className={cn(
-        "relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center px-4 text-center sm:px-6",
+        "relative z-10 mx-auto w-full max-w-4xl px-4 sm:px-6 lg:px-8",
         className,
       )}
     >
       <m.div
-        className="flex w-full flex-col items-center gap-6 md:gap-8"
+        className="flex w-full flex-col items-stretch gap-6 md:gap-8"
         {...motionProps}
       >
         {/* Status badge */}
-        <m.div variants={prefersReducedMotion ? undefined : heroStaggerItem}>
+        <m.div
+          className="flex justify-center"
+          variants={prefersReducedMotion ? undefined : heroStaggerItem}
+        >
           <span className="inline-flex items-center gap-2 rounded-full border border-default bg-bg-elevated/80 px-3 py-1.5 backdrop-blur-sm">
             <span className="relative flex size-2">
               <span className="absolute inline-flex size-full animate-ping rounded-full bg-accent-blue opacity-40" />
@@ -56,32 +59,37 @@ export function HeroContent({ className }: HeroContentProps) {
 
         {/* Headline */}
         <m.div
-          className="space-y-2"
+          className="w-full text-center"
           variants={prefersReducedMotion ? undefined : heroStaggerItem}
         >
           <h1 className="font-heading text-hero text-balance tracking-tight">
             <span className="block text-foreground">{siteConfig.name}</span>
-            <span className="mt-1 block gradient-accent-text">
+            <span className="mt-2 block gradient-accent-text">
               {siteConfig.role}
             </span>
           </h1>
         </m.div>
 
-        {/* Tagline */}
-        <m.p
-          className="max-w-xl text-lg font-medium text-foreground/90 md:text-xl"
+        {/* Tagline + Description */}
+        <m.div
+          className="mx-auto w-full max-w-2xl space-y-5"
           variants={prefersReducedMotion ? undefined : heroStaggerItem}
         >
-          {siteConfig.tagline}
-        </m.p>
+          <div
+            className="mx-auto h-px w-16 bg-gradient-to-r from-transparent via-accent-blue/60 to-transparent"
+            aria-hidden
+          />
 
-        {/* Description */}
-        <m.p
-          className="max-w-2xl text-description leading-relaxed"
-          variants={prefersReducedMotion ? undefined : heroStaggerItem}
-        >
-          {siteConfig.heroDescription}
-        </m.p>
+          <p className="hero-tagline text-center text-pretty">
+            {siteConfig.tagline}
+          </p>
+
+          <div className="hero-description-panel">
+            <p className="hero-description text-center text-pretty">
+              {siteConfig.heroDescription}
+            </p>
+          </div>
+        </m.div>
 
         {/* CTAs */}
         <m.div
@@ -110,7 +118,7 @@ export function HeroContent({ className }: HeroContentProps) {
       {/* Scroll hint */}
       {!prefersReducedMotion ? (
         <m.div
-          className="mt-12 md:mt-16"
+          className="mt-12 flex justify-center md:mt-16"
           variants={heroFadeIn}
           initial="hidden"
           animate="visible"
