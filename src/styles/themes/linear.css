@@ -1,0 +1,134 @@
+/**
+ * Linear Original — default portfolio palette
+ * 70% Linear · 20% Apple · 10% Raycast
+ *
+ * To restore: set ACTIVE_THEME import in src/styles/themes/active.css
+ */
+
+:root {
+  /* Backgrounds */
+  --bg-primary: oklch(0.985 0.002 260);
+  --bg-secondary: oklch(0.97 0.004 260);
+  --bg-elevated: oklch(1 0 0);
+
+  /* Accents */
+  --accent-blue: oklch(0.55 0.2 255);
+  --accent-purple: oklch(0.52 0.22 295);
+  --accent-blue-muted: oklch(0.55 0.2 255 / 12%);
+  --accent-purple-muted: oklch(0.52 0.22 295 / 12%);
+
+  /* Borders */
+  --border-subtle: oklch(0.145 0 0 / 6%);
+  --border-default: oklch(0.145 0 0 / 10%);
+  --border-strong: oklch(0.145 0 0 / 16%);
+  --border-accent: oklch(0.55 0.2 255 / 30%);
+
+  /* Gradients */
+  --gradient-accent: linear-gradient(
+    135deg,
+    oklch(0.55 0.2 255) 0%,
+    oklch(0.52 0.22 295) 100%
+  );
+  --gradient-accent-subtle: linear-gradient(
+    135deg,
+    oklch(0.55 0.2 255 / 8%) 0%,
+    oklch(0.52 0.22 295 / 8%) 100%
+  );
+  --gradient-surface: linear-gradient(
+    180deg,
+    oklch(1 0 0) 0%,
+    oklch(0.97 0.004 260) 100%
+  );
+  --gradient-border: linear-gradient(
+    135deg,
+    oklch(0.55 0.2 255 / 40%) 0%,
+    oklch(0.52 0.22 295 / 20%) 50%,
+    oklch(0.145 0 0 / 10%) 100%
+  );
+  --gradient-glow: radial-gradient(
+    ellipse 80% 50% at 50% -20%,
+    oklch(0.55 0.2 255 / 15%) 0%,
+    transparent 70%
+  );
+
+  /* Elevation */
+  --elevation-xs: 0 1px 2px oklch(0.145 0 0 / 4%);
+  --elevation-sm: 0 2px 8px oklch(0.145 0 0 / 6%);
+  --elevation-md: 0 4px 16px oklch(0.145 0 0 / 8%);
+  --elevation-lg: 0 8px 32px oklch(0.145 0 0 / 10%);
+  --elevation-xl: 0 16px 48px oklch(0.145 0 0 / 12%);
+  --glow-blue: 0 0 24px oklch(0.55 0.2 255 / 20%);
+  --glow-purple: 0 0 24px oklch(0.52 0.22 295 / 20%);
+
+  /* Radius */
+  --radius-button-token: 0.5rem;
+  --radius-card-token: 0.875rem;
+  --radius-badge-token: 9999px;
+  --radius-tag-token: 0.375rem;
+
+  /* Shadcn semantic (light) */
+  --theme-muted-foreground: oklch(0.45 0 0);
+  --theme-accent-foreground: oklch(0.55 0.2 255);
+  --theme-ring: oklch(0.55 0.2 255 / 40%);
+  --theme-primary-fg-on-dark: oklch(0.1 0.008 260);
+  --theme-chart-1: oklch(0.55 0.2 255);
+  --theme-chart-2: oklch(0.52 0.22 295);
+}
+
+.dark {
+  --bg-primary: oklch(0.1 0.008 260);
+  --bg-secondary: oklch(0.13 0.01 260);
+  --bg-elevated: oklch(0.17 0.012 260);
+
+  --accent-blue: oklch(0.68 0.16 250);
+  --accent-purple: oklch(0.65 0.18 290);
+  --accent-blue-muted: oklch(0.68 0.16 250 / 14%);
+  --accent-purple-muted: oklch(0.65 0.18 290 / 14%);
+
+  --border-subtle: oklch(1 0 0 / 6%);
+  --border-default: oklch(1 0 0 / 10%);
+  --border-strong: oklch(1 0 0 / 16%);
+  --border-accent: oklch(0.68 0.16 250 / 35%);
+
+  --gradient-accent: linear-gradient(
+    135deg,
+    oklch(0.68 0.16 250) 0%,
+    oklch(0.65 0.18 290) 100%
+  );
+  --gradient-accent-subtle: linear-gradient(
+    135deg,
+    oklch(0.68 0.16 250 / 10%) 0%,
+    oklch(0.65 0.18 290 / 10%) 100%
+  );
+  --gradient-surface: linear-gradient(
+    180deg,
+    oklch(0.17 0.012 260) 0%,
+    oklch(0.13 0.01 260) 100%
+  );
+  --gradient-border: linear-gradient(
+    135deg,
+    oklch(0.68 0.16 250 / 50%) 0%,
+    oklch(0.65 0.18 290 / 25%) 50%,
+    oklch(1 0 0 / 8%) 100%
+  );
+  --gradient-glow: radial-gradient(
+    ellipse 80% 50% at 50% -20%,
+    oklch(0.68 0.16 250 / 12%) 0%,
+    transparent 70%
+  );
+
+  --elevation-xs: 0 1px 2px oklch(0 0 0 / 30%);
+  --elevation-sm: 0 2px 8px oklch(0 0 0 / 35%);
+  --elevation-md: 0 4px 16px oklch(0 0 0 / 40%);
+  --elevation-lg: 0 8px 32px oklch(0 0 0 / 45%);
+  --elevation-xl: 0 16px 48px oklch(0 0 0 / 50%);
+  --glow-blue: 0 0 32px oklch(0.68 0.16 250 / 25%);
+  --glow-purple: 0 0 32px oklch(0.65 0.18 290 / 25%);
+
+  --theme-muted-foreground: oklch(0.65 0 0);
+  --theme-accent-foreground: oklch(0.68 0.16 250);
+  --theme-ring: oklch(0.68 0.16 250 / 40%);
+  --theme-primary-fg-on-dark: oklch(0.1 0.008 260);
+  --theme-chart-1: oklch(0.68 0.16 250);
+  --theme-chart-2: oklch(0.65 0.18 290);
+}

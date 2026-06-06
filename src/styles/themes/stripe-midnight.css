@@ -1,0 +1,134 @@
+/**
+ * Stripe Midnight — deep navy fintech palette
+ * Inspired by Stripe's brand: #0a2540 navy, #635bff blurple
+ *
+ * To restore Linear: swap import in src/styles/themes/active.css
+ */
+
+:root {
+  /* Light mode — clean Stripe-inspired paper */
+  --bg-primary: oklch(0.99 0.004 250);
+  --bg-secondary: oklch(0.96 0.012 250);
+  --bg-elevated: oklch(1 0 0);
+
+  --accent-blue: oklch(0.52 0.24 278);
+  --accent-purple: oklch(0.48 0.22 265);
+  --accent-blue-muted: oklch(0.52 0.24 278 / 10%);
+  --accent-purple-muted: oklch(0.48 0.22 265 / 10%);
+
+  --border-subtle: oklch(0.52 0.08 250 / 8%);
+  --border-default: oklch(0.52 0.08 250 / 14%);
+  --border-strong: oklch(0.52 0.08 250 / 22%);
+  --border-accent: oklch(0.52 0.24 278 / 35%);
+
+  --gradient-accent: linear-gradient(
+    135deg,
+    oklch(0.52 0.24 278) 0%,
+    oklch(0.48 0.22 265) 100%
+  );
+  --gradient-accent-subtle: linear-gradient(
+    135deg,
+    oklch(0.52 0.24 278 / 8%) 0%,
+    oklch(0.48 0.22 265 / 8%) 100%
+  );
+  --gradient-surface: linear-gradient(
+    180deg,
+    oklch(1 0 0) 0%,
+    oklch(0.96 0.012 250) 100%
+  );
+  --gradient-border: linear-gradient(
+    135deg,
+    oklch(0.52 0.24 278 / 35%) 0%,
+    oklch(0.48 0.22 265 / 18%) 50%,
+    oklch(0.52 0.08 250 / 12%) 100%
+  );
+  --gradient-glow: radial-gradient(
+    ellipse 80% 50% at 50% -20%,
+    oklch(0.52 0.24 278 / 12%) 0%,
+    transparent 70%
+  );
+
+  --elevation-xs: 0 1px 2px oklch(0.25 0.06 250 / 8%);
+  --elevation-sm: 0 2px 8px oklch(0.25 0.06 250 / 10%);
+  --elevation-md: 0 4px 16px oklch(0.25 0.06 250 / 12%);
+  --elevation-lg: 0 8px 32px oklch(0.25 0.06 250 / 14%);
+  --elevation-xl: 0 16px 48px oklch(0.25 0.06 250 / 16%);
+  --glow-blue: 0 0 24px oklch(0.52 0.24 278 / 22%);
+  --glow-purple: 0 0 24px oklch(0.48 0.22 265 / 18%);
+
+  --radius-button-token: 0.5rem;
+  --radius-card-token: 0.875rem;
+  --radius-badge-token: 9999px;
+  --radius-tag-token: 0.375rem;
+
+  --theme-muted-foreground: oklch(0.48 0.04 250);
+  --theme-accent-foreground: oklch(0.52 0.24 278);
+  --theme-ring: oklch(0.52 0.24 278 / 40%);
+  --theme-primary-fg-on-dark: oklch(0.17 0.045 250);
+  --theme-chart-1: oklch(0.52 0.24 278);
+  --theme-chart-2: oklch(0.48 0.22 265);
+}
+
+.dark {
+  /* Core navy surfaces — #0a2540 family */
+  --bg-primary: oklch(0.17 0.045 250);
+  --bg-secondary: oklch(0.21 0.055 248);
+  --bg-elevated: oklch(0.25 0.065 246);
+
+  /* Stripe blurple + indigo */
+  --accent-blue: oklch(0.58 0.24 278);
+  --accent-purple: oklch(0.55 0.22 265);
+  --accent-blue-muted: oklch(0.58 0.24 278 / 16%);
+  --accent-purple-muted: oklch(0.55 0.22 265 / 14%);
+
+  /* Blue-tinted borders */
+  --border-subtle: oklch(0.72 0.05 245 / 10%);
+  --border-default: oklch(0.72 0.05 245 / 16%);
+  --border-strong: oklch(0.72 0.05 245 / 24%);
+  --border-accent: oklch(0.58 0.24 278 / 45%);
+
+  --gradient-accent: linear-gradient(
+    135deg,
+    oklch(0.58 0.24 278) 0%,
+    oklch(0.52 0.22 265) 55%,
+    oklch(0.62 0.18 290) 100%
+  );
+  --gradient-accent-subtle: linear-gradient(
+    135deg,
+    oklch(0.58 0.24 278 / 12%) 0%,
+    oklch(0.52 0.22 265 / 10%) 100%
+  );
+  --gradient-surface: linear-gradient(
+    180deg,
+    oklch(0.25 0.065 246) 0%,
+    oklch(0.17 0.045 250) 100%
+  );
+  --gradient-border: linear-gradient(
+    135deg,
+    oklch(0.58 0.24 278 / 55%) 0%,
+    oklch(0.55 0.22 265 / 30%) 45%,
+    oklch(0.72 0.05 245 / 12%) 100%
+  );
+  --gradient-glow: radial-gradient(
+    ellipse 85% 55% at 50% -15%,
+    oklch(0.58 0.24 278 / 20%) 0%,
+    oklch(0.35 0.12 250 / 10%) 45%,
+    transparent 72%
+  );
+
+  --elevation-xs: 0 1px 2px oklch(0.08 0.04 250 / 45%);
+  --elevation-sm: 0 2px 10px oklch(0.06 0.035 250 / 50%);
+  --elevation-md: 0 4px 20px oklch(0.06 0.035 250 / 55%);
+  --elevation-lg: 0 8px 36px oklch(0.05 0.03 250 / 60%);
+  --elevation-xl: 0 16px 52px oklch(0.05 0.03 250 / 65%);
+  --glow-blue: 0 0 36px oklch(0.58 0.24 278 / 30%);
+  --glow-purple: 0 0 36px oklch(0.55 0.22 265 / 22%);
+
+  /* Stripe slate text — #adbdcc family */
+  --theme-muted-foreground: oklch(0.74 0.035 245);
+  --theme-accent-foreground: oklch(0.62 0.22 278);
+  --theme-ring: oklch(0.58 0.24 278 / 45%);
+  --theme-primary-fg-on-dark: oklch(0.17 0.045 250);
+  --theme-chart-1: oklch(0.58 0.24 278);
+  --theme-chart-2: oklch(0.55 0.22 265);
+}
