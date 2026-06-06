@@ -1,5 +1,5 @@
 /** Active portfolio color theme — mirrors src/styles/themes/active.css */
-export const ACTIVE_COLOR_THEME = "apple-dark" as const;
+export const ACTIVE_COLOR_THEME = "linear" as const;
 
 export type ColorTheme =
   | "linear"
