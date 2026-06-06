@@ -2,8 +2,10 @@
  * Active color theme — swap this import to preview palettes.
  *
  * Available:
- *   ./stripe-midnight.css  — Stripe Midnight (navy + blurple)
  *   ./linear.css           — Original Linear / Raycast palette
+ *   ./stripe-midnight.css  — Stripe Midnight (navy + blurple)
+ *   ./apple-dark.css       — Apple Dark (warm charcoal + system blue)
+ *   ./obsidian-warm.css    — Obsidian Warm (charcoal + sand/amber)
  */
 
-@import "./stripe-midnight.css";
+@import "./apple-dark.css";
