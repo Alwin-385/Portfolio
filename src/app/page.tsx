@@ -4,6 +4,7 @@ import { AnimationWrapper } from "@/components/animation/animation-wrapper";
 import { PageWrapper } from "@/components/layout/page-wrapper";
 import { SectionContainer } from "@/components/layout/section-container";
 import { HeroSection } from "@/sections/hero";
+import { AboutSection } from "@/sections/about";
 import { Badge } from "@/components/ui/badge";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { ProjectCard } from "@/components/ui/project-card";
@@ -25,19 +26,7 @@ export default function HomePage() {
       <main id="main-content" className="relative flex flex-1 flex-col">
         <HeroSection />
 
-        {/* About */}
-        <SectionContainer id="about" label="About">
-          <AnimationWrapper preset="fadeInUp">
-            <div className="mx-auto max-w-2xl space-y-md text-center">
-              <SectionTitle>About</SectionTitle>
-              <DescriptionText>
-                Full-stack engineer focused on AI-powered web applications,
-                scalable architectures, and premium user experiences. I build
-                products that feel as polished as they perform.
-              </DescriptionText>
-            </div>
-          </AnimationWrapper>
-        </SectionContainer>
+        <AboutSection />
 
         {/* Projects */}
         <SectionContainer id="projects" label="Projects">
