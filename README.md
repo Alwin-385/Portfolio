@@ -2,7 +2,7 @@
 
 Personal portfolio showcasing full-stack development, AI-powered products, and production-grade web engineering.
 
-**Live site:** https://portfolio-lilac-seven-7f18tmp05l.vercel.app(https://github.com/Alwin-385/Portfolio)
+**Live site:** [portfolio-lilac-seven-7f18tmp05l.vercel.app](https://portfolio-lilac-seven-7f18tmp05l.vercel.app)
 
 ---
 
@@ -98,7 +98,7 @@ Optional — set in Vercel or `.env.local`:
 
 | Variable | Description |
 |----------|-------------|
-| `NEXT_PUBLIC_SITE_URL` | Canonical site URL for SEO & sitemap (e.g. `https://your-name.vercel.app`) |
+| `NEXT_PUBLIC_SITE_URL` | Canonical site URL for SEO & sitemap (`https://portfolio-lilac-seven-7f18tmp05l.vercel.app`) |
 
 ---
 

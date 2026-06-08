@@ -12,7 +12,7 @@ export const siteConfig: SiteConfig = {
     "Alwin Baby — Full-Stack Developer building AI-powered web applications with Next.js, TypeScript, and production-grade architecture.",
   heroDescription:
     "Final-year Computer Science student building AI-powered web applications, full-stack products, and intelligent user experiences—from backend systems to polished frontend interfaces.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://alwinbaby.dev",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://portfolio-lilac-seven-7f18tmp05l.vercel.app",
   locale: "en_US",
   author: {
     name: "Alwin Baby",
