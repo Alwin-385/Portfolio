@@ -77,7 +77,7 @@ export type NavItem = {
   href: string;
 };
 
-export type SocialIcon = "github" | "linkedin";
+export type SocialIcon = "github" | "linkedin" | "email";
 
 export type SocialLink = {
   label: string;

@@ -6,6 +6,7 @@ type TypographyProps = {
   className?: string;
   children: ReactNode;
   as?: ElementType;
+  id?: string;
 };
 
 export function HeroTitle({
@@ -29,9 +30,11 @@ export function SectionTitle({
   className,
   children,
   as: Component = "h2",
+  id,
 }: TypographyProps) {
   return (
     <Component
+      id={id}
       className={cn(
         "font-heading text-section-title text-balance text-foreground",
         className,

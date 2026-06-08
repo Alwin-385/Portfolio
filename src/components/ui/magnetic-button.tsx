@@ -57,7 +57,7 @@ export function MagneticButton({
       href={href}
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
-      className={cn(buttonVariants({ variant, size: "lg" }), className)}
+      className={cn(buttonVariants({ variant, size: "lg" }), "touch-manipulation", className)}
       style={
         prefersReducedMotion
           ? undefined

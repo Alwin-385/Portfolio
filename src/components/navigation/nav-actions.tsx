@@ -3,15 +3,27 @@
 import { m } from "motion/react";
 
 import { SocialIcon } from "@/components/navigation/social-icon";
+import { motionIconHover, motionTapScale } from "@/animations/motion-interactions";
 import { SOCIAL_LINKS } from "@/data/navigation";
 import { cn } from "@/lib/utils";
 
 type NavActionsProps = {
   className?: string;
   layout?: "horizontal" | "vertical";
+  /** On very narrow screens, show email only in the top bar */
+  filter?: "all" | "email";
 };
 
-export function NavActions({ className, layout = "horizontal" }: NavActionsProps) {
+export function NavActions({
+  className,
+  layout = "horizontal",
+  filter = "all",
+}: NavActionsProps) {
+  const links =
+    filter === "email"
+      ? SOCIAL_LINKS.filter((link) => link.icon === "email")
+      : SOCIAL_LINKS;
+
   return (
     <div
       className={cn(
@@ -20,19 +32,22 @@ export function NavActions({ className, layout = "horizontal" }: NavActionsProps
         className,
       )}
     >
-      {SOCIAL_LINKS.map(({ label, href, icon }, index) => (
-        <m.a
-          key={label}
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={label}
+      {links.map(({ label, href, icon }, index) => {
+        const isExternal = href.startsWith("http");
+
+        return (
+          <m.a
+            key={label}
+            href={href}
+            target={isExternal ? "_blank" : undefined}
+            rel={isExternal ? "noopener noreferrer" : undefined}
+            aria-label={label}
           className={cn(
-            "inline-flex items-center justify-center gap-2 rounded-[var(--radius-button-token)] border border-transparent p-2 text-muted-foreground transition-colors outline-none",
+            "touch-target touch-manipulation inline-flex items-center justify-center rounded-[var(--radius-button-token)] border border-transparent p-0 text-muted-foreground transition-colors outline-none",
             "hover:border-default hover:bg-bg-secondary hover:text-foreground",
             "focus-visible:ring-2 focus-visible:ring-accent-blue/40",
             layout === "vertical" &&
-              "justify-start border-default px-4 py-3 text-base",
+              "min-h-12 w-full justify-start border-default px-4 py-3 text-base",
           )}
           initial={layout === "vertical" ? { opacity: 0, x: -16 } : false}
           animate={layout === "vertical" ? { opacity: 1, x: 0 } : undefined}
@@ -40,13 +55,14 @@ export function NavActions({ className, layout = "horizontal" }: NavActionsProps
             delay: layout === "vertical" ? 0.35 + index * 0.05 : 0,
             duration: 0.35,
           }}
-          whileHover={{ scale: layout === "horizontal" ? 1.05 : 1 }}
-          whileTap={{ scale: 0.95 }}
+          whileHover={layout === "horizontal" ? motionIconHover : undefined}
+          whileTap={motionTapScale}
         >
           <SocialIcon name={icon} />
           {layout === "vertical" ? <span>{label}</span> : null}
         </m.a>
-      ))}
+        );
+      })}
     </div>
   );
 }

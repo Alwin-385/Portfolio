@@ -1,0 +1,43 @@
+/**
+ * GPU-friendly interaction utilities — use when Motion wrappers aren't needed.
+ */
+
+.motion-card-lift {
+  transition:
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.25s ease;
+  will-change: transform;
+}
+
+.motion-card-lift:hover {
+  transform: translateY(-4px);
+}
+
+.motion-glow-hover {
+  transition:
+    box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.25s ease;
+}
+
+.motion-glow-hover:hover {
+  box-shadow: var(--elevation-lg), var(--glow-blue);
+}
+
+.motion-button-interaction {
+  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.motion-button-interaction:active {
+  transform: scale(0.97);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-card-lift,
+  .motion-card-lift:hover,
+  .motion-button-interaction,
+  .motion-button-interaction:active {
+    transform: none !important;
+    transition: none !important;
+  }
+}

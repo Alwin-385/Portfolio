@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
   [
-    "group/button inline-flex shrink-0 items-center justify-center gap-2",
+    "group/button inline-flex shrink-0 items-center justify-center gap-2 touch-manipulation",
     "rounded-[var(--radius-button-token)] text-body font-medium whitespace-nowrap",
     "transition-all duration-200 outline-none select-none",
     "focus-visible:ring-2 focus-visible:ring-accent-blue/40 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-primary",
@@ -38,11 +38,11 @@ const buttonVariants = cva(
         link: "border-transparent text-accent-blue underline-offset-4 hover:underline",
       },
       size: {
-        default: "h-10 px-4",
-        sm: "h-8 px-3 text-metadata",
+        default: "h-11 px-4",
+        sm: "h-10 px-3 text-metadata",
         lg: "h-11 px-5",
-        icon: "size-10",
-        "icon-sm": "size-8",
+        icon: "size-11",
+        "icon-sm": "size-11",
       },
     },
     defaultVariants: {

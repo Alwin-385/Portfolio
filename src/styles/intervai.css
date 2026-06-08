@@ -1,0 +1,72 @@
+/* IntervAI product showcase — section-specific styles */
+
+.intervai-showcase {
+  --intervai-glow: radial-gradient(
+    ellipse 70% 50% at 50% 0%,
+    oklch(0.55 0.2 255 / 18%) 0%,
+    oklch(0.52 0.22 295 / 8%) 40%,
+    transparent 70%
+  );
+  --intervai-surface: linear-gradient(
+    180deg,
+    oklch(0.08 0.01 260 / 98%) 0%,
+    oklch(0.06 0.015 280 / 99%) 100%
+  );
+  --intervai-border-glow: linear-gradient(
+    135deg,
+    oklch(0.55 0.2 255 / 50%) 0%,
+    oklch(0.52 0.22 295 / 25%) 50%,
+    oklch(0.55 0.2 255 / 15%) 100%
+  );
+}
+
+.intervai-browser {
+  background: var(--intervai-surface);
+  box-shadow:
+    0 0 0 1px oklch(1 0 0 / 8%),
+    0 24px 80px oklch(0 0 0 / 45%),
+    0 0 60px oklch(0.55 0.2 255 / 12%);
+}
+
+.intervai-browser::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: var(--intervai-border-glow);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.intervai-mock-ui {
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+@media (min-width: 768px) {
+  .intervai-mock-ui {
+    font-size: 11px;
+  }
+}
+
+.intervai-arch-connector {
+  background: linear-gradient(
+    180deg,
+    oklch(0.55 0.2 255 / 60%) 0%,
+    oklch(0.52 0.22 295 / 30%) 100%
+  );
+}
+
+.intervai-gallery-scroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.intervai-gallery-scroll::-webkit-scrollbar {
+  display: none;
+}

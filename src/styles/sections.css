@@ -1,0 +1,400 @@
+/* ── Section-level atmospheric backgrounds ── */
+
+/* About — blue-tinted dot mesh */
+.section-about {
+  background-color: var(--bg-primary);
+  background-image:
+    radial-gradient(
+      ellipse 80% 60% at 20% 0%,
+      oklch(0.68 0.16 250 / 10%) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 60% 50% at 80% 100%,
+      oklch(0.65 0.18 290 / 8%) 0%,
+      transparent 60%
+    );
+}
+
+.dark .section-about {
+  background-image:
+    radial-gradient(
+      ellipse 80% 60% at 20% 0%,
+      oklch(0.68 0.16 250 / 14%) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 60% 50% at 80% 100%,
+      oklch(0.65 0.18 290 / 11%) 0%,
+      transparent 60%
+    );
+}
+
+/* About dot-grid overlay */
+.section-about-grid {
+  background-image: radial-gradient(
+    circle,
+    oklch(0.68 0.16 250 / 18%) 1px,
+    transparent 1px
+  );
+  background-size: 28px 28px;
+  mask-image: radial-gradient(
+    ellipse 100% 100% at 50% 50%,
+    black 30%,
+    transparent 80%
+  );
+}
+
+/* Skills — purple-shifted mesh */
+.section-skills {
+  background-color: var(--bg-primary);
+  background-image:
+    radial-gradient(
+      ellipse 80% 50% at 80% 0%,
+      oklch(0.65 0.18 290 / 11%) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 60% 40% at 10% 100%,
+      oklch(0.68 0.16 250 / 9%) 0%,
+      transparent 60%
+    );
+}
+
+.dark .section-skills {
+  background-image:
+    radial-gradient(
+      ellipse 80% 50% at 80% 0%,
+      oklch(0.65 0.18 290 / 15%) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 60% 40% at 10% 100%,
+      oklch(0.68 0.16 250 / 11%) 0%,
+      transparent 60%
+    );
+}
+
+/* Skills diagonal line overlay */
+.section-skills-lines {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    oklch(0.65 0.18 290 / 5%) 0px,
+    oklch(0.65 0.18 290 / 5%) 1px,
+    transparent 1px,
+    transparent 40px
+  );
+  mask-image: radial-gradient(
+    ellipse 120% 80% at 50% 50%,
+    black 40%,
+    transparent 80%
+  );
+}
+
+/* Horizontal divider gradient line */
+.section-divider-blue {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    oklch(0.68 0.16 250 / 50%) 30%,
+    oklch(0.65 0.18 290 / 40%) 70%,
+    transparent 100%
+  );
+}
+
+.section-divider-purple {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    oklch(0.65 0.18 290 / 50%) 30%,
+    oklch(0.68 0.16 250 / 40%) 70%,
+    transparent 100%
+  );
+}
+
+/* Interest ticker */
+.interest-ticker {
+  animation: ticker-scroll 30s linear infinite;
+}
+.interest-ticker:hover {
+  animation-play-state: paused;
+}
+.interest-ticker-reverse {
+  animation: ticker-scroll-reverse 35s linear infinite;
+}
+.interest-ticker-reverse:hover {
+  animation-play-state: paused;
+}
+
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes ticker-scroll-reverse {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .interest-ticker,
+  .interest-ticker-reverse {
+    animation: none !important;
+  }
+}
+
+/* Experience — emerald-blue mesh */
+.section-experience {
+  background-color: var(--bg-primary);
+  background-image:
+    radial-gradient(
+      ellipse 70% 55% at 50% 0%,
+      oklch(0.68 0.16 250 / 8%) 0%,
+      transparent 65%
+    ),
+    radial-gradient(
+      ellipse 50% 40% at 0% 80%,
+      oklch(0.72 0.14 180 / 5%) 0%,
+      transparent 60%
+    );
+}
+
+.dark .section-experience {
+  background-image:
+    radial-gradient(
+      ellipse 70% 55% at 50% 0%,
+      oklch(0.68 0.16 250 / 10%) 0%,
+      transparent 65%
+    ),
+    radial-gradient(
+      ellipse 50% 40% at 0% 80%,
+      oklch(0.72 0.14 180 / 7%) 0%,
+      transparent 60%
+    );
+}
+
+.section-experience-grid {
+  background-image:
+    linear-gradient(var(--border-subtle) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border-subtle) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(
+    ellipse 90% 70% at 50% 40%,
+    black 20%,
+    transparent 75%
+  );
+}
+
+/* Resume — warm accent mesh */
+.section-resume {
+  background-color: var(--bg-primary);
+  background-image:
+    radial-gradient(
+      ellipse 70% 50% at 30% 100%,
+      oklch(0.68 0.16 250 / 7%) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 50% 40% at 90% 20%,
+      oklch(0.65 0.18 290 / 6%) 0%,
+      transparent 55%
+    );
+}
+
+.dark .section-resume {
+  background-image:
+    radial-gradient(
+      ellipse 70% 50% at 30% 100%,
+      oklch(0.68 0.16 250 / 9%) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 50% 40% at 90% 20%,
+      oklch(0.65 0.18 290 / 8%) 0%,
+      transparent 55%
+    );
+}
+
+.section-resume-glow {
+  background-image: radial-gradient(
+    circle,
+    oklch(0.68 0.16 250 / 12%) 1px,
+    transparent 1px
+  );
+  background-size: 32px 32px;
+  mask-image: radial-gradient(
+    ellipse 100% 80% at 50% 50%,
+    black 25%,
+    transparent 75%
+  );
+}
+
+/* Current Focus — forward-looking purple-blue mesh */
+.section-focus {
+  background-color: var(--bg-primary);
+  background-image:
+    radial-gradient(
+      ellipse 75% 55% at 100% 30%,
+      oklch(0.65 0.18 290 / 9%) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 60% 45% at 0% 70%,
+      oklch(0.68 0.16 250 / 7%) 0%,
+      transparent 55%
+    );
+}
+
+.dark .section-focus {
+  background-image:
+    radial-gradient(
+      ellipse 75% 55% at 100% 30%,
+      oklch(0.65 0.18 290 / 11%) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 60% 45% at 0% 70%,
+      oklch(0.68 0.16 250 / 9%) 0%,
+      transparent 55%
+    );
+}
+
+.section-focus-aurora {
+  background-image: repeating-linear-gradient(
+    135deg,
+    oklch(0.65 0.18 290 / 4%) 0px,
+    oklch(0.65 0.18 290 / 4%) 1px,
+    transparent 1px,
+    transparent 36px
+  );
+  mask-image: radial-gradient(
+    ellipse 110% 75% at 50% 45%,
+    black 35%,
+    transparent 80%
+  );
+}
+
+/* Contact — closing gradient mesh — richest glow, last impression */
+.section-contact {
+  background-color: var(--bg-primary);
+  background-image:
+    radial-gradient(
+      ellipse 90% 70% at 50% 110%,
+      oklch(0.68 0.16 250 / 13%) 0%,
+      transparent 65%
+    ),
+    radial-gradient(
+      ellipse 60% 50% at 100% 0%,
+      oklch(0.65 0.18 290 / 10%) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 50% 40% at 0% 60%,
+      oklch(0.65 0.18 290 / 7%) 0%,
+      transparent 60%
+    );
+}
+
+.dark .section-contact {
+  background-image:
+    radial-gradient(
+      ellipse 90% 70% at 50% 110%,
+      oklch(0.68 0.16 250 / 18%) 0%,
+      transparent 65%
+    ),
+    radial-gradient(
+      ellipse 60% 50% at 100% 0%,
+      oklch(0.65 0.18 290 / 14%) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 50% 40% at 0% 60%,
+      oklch(0.65 0.18 290 / 10%) 0%,
+      transparent 60%
+    );
+}
+
+.section-contact-grid {
+  background-image:
+    linear-gradient(var(--border-subtle) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border-subtle) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(
+    ellipse 90% 80% at 50% 60%,
+    black 15%,
+    transparent 75%
+  );
+}
+
+.contact-aurora-primary {
+  animation: hero-aurora-drift 18s ease-in-out infinite alternate;
+}
+
+.contact-aurora-secondary {
+  animation: hero-aurora-drift 22s ease-in-out infinite alternate-reverse;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-aurora-primary,
+  .contact-aurora-secondary {
+    animation: none !important;
+  }
+}
+
+.bento-card-shimmer {
+  position: relative;
+}
+.bento-card-shimmer::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: var(--gradient-border);
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+  z-index: 0;
+}
+.bento-card-shimmer:hover::before {
+  opacity: 1;
+}
+
+/* Animated spotlight sweep on card hover */
+.bento-card-shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    oklch(0.68 0.16 250 / 6%) 0%,
+    transparent 50%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+.bento-card-shimmer:hover::after {
+  opacity: 1;
+}
+
+/* Subtle lift on hover for premium feel */
+.card-lift {
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+.card-lift:hover {
+  transform: translateY(-3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-lift,
+  .card-lift:hover {
+    transform: none !important;
+    transition: none !important;
+  }
+}

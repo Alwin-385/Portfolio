@@ -10,18 +10,30 @@ export function AboutSection() {
       id="about"
       label="About"
       description="Learn about Alwin Baby — background, focus areas, and highlights"
-      className="relative overflow-hidden"
+      className="section-about relative overflow-hidden"
     >
+      {/* Dot-grid overlay */}
+      <div className="section-about-grid pointer-events-none absolute inset-0" aria-hidden />
+      {/* Top glow */}
       <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-64 bg-[var(--gradient-glow)] opacity-40"
+        className="pointer-events-none absolute inset-x-0 top-0 h-80 bg-[var(--gradient-glow)] opacity-50"
         aria-hidden
       />
 
-      <div className="relative flex w-full flex-col gap-12 md:gap-16 lg:gap-20">
+      <div className="relative flex w-full flex-col gap-10 md:gap-12">
         <AboutSectionHeader />
         <AboutIntro />
+
+        {/* Divider */}
+        <div className="section-divider-blue" aria-hidden />
+
         <AboutFocusAreas />
+
+        {/* Divider */}
+        <div className="section-divider-purple" aria-hidden />
+
         <AboutInterests />
+
         <AboutHighlights />
       </div>
     </SectionContainer>

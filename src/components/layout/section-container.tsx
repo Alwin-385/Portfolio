@@ -32,15 +32,9 @@ export function SectionContainer({
       )}
     >
       <div
-        className={cn(pageContainerClass, pageMaxWidthClass, containerClassName)}
+        className={cn(pageContainerClass, pageMaxWidthClass, containerClassName, "min-w-0")}
         style={pageContainerStyles}
       >
-        {label ? (
-          <header className="sr-only">
-            <h2 id={labelledBy}>{label}</h2>
-            {description ? <p>{description}</p> : null}
-          </header>
-        ) : null}
         {children}
       </div>
     </Component>

@@ -4,8 +4,7 @@ import { m } from "motion/react";
 
 import { getAnimationVariant } from "@/animations/variants";
 import { defaultTransition } from "@/animations/transitions";
-import { viewportDefaults } from "@/animations/config";
-import { useReducedMotion } from "@/hooks/use-reduced-motion";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { cn } from "@/lib/utils";
 import type { AnimationWrapperProps } from "@/types";
 
@@ -13,25 +12,26 @@ export function AnimationWrapper({
   preset = "fadeInUp",
   delay = 0,
   duration,
-  once = viewportDefaults.once,
-  amount = viewportDefaults.amount,
+  once,
+  amount,
   className,
   children,
 }: AnimationWrapperProps) {
-  const prefersReducedMotion = useReducedMotion();
+  const reveal = useScrollReveal({
+    once: once ?? true,
+    amount: amount ?? 0.2,
+  });
   const variants = getAnimationVariant(preset);
 
-  if (prefersReducedMotion) {
+  if (reveal.initial === false) {
     return <div className={className}>{children}</div>;
   }
 
   return (
     <m.div
       className={cn(className)}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once, amount }}
       variants={variants}
+      {...reveal}
       transition={{
         ...defaultTransition,
         delay,

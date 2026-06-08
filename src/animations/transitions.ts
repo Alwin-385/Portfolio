@@ -1,26 +1,27 @@
 import type { Transition } from "motion/react";
 
-import { motionDefaults } from "@/animations/config";
+import { motionDefaults, staggerDefaults } from "@/animations/config";
+import {
+  MOTION_DURATION,
+  MOTION_EASE,
+  MOTION_SPRING,
+} from "@/animations/motion-tokens";
 
 export const defaultTransition: Transition = {
   duration: motionDefaults.duration,
   ease: motionDefaults.ease,
 };
 
-export const springTransition: Transition = {
-  type: "spring",
-  stiffness: 260,
-  damping: 24,
-};
+export const springTransition: Transition = MOTION_SPRING.soft;
 
 export const fastTransition: Transition = {
-  duration: 0.35,
-  ease: motionDefaults.ease,
+  duration: MOTION_DURATION.fast,
+  ease: MOTION_EASE.out,
 };
 
 export const slowTransition: Transition = {
-  duration: 0.9,
-  ease: motionDefaults.ease,
+  duration: MOTION_DURATION.slow,
+  ease: MOTION_EASE.out,
 };
 
 export function createTransition(
@@ -31,3 +32,5 @@ export function createTransition(
     ...overrides,
   };
 }
+
+export { staggerDefaults };

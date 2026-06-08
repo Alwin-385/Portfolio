@@ -17,7 +17,11 @@ export default function RootLayout({
   const jsonLd = createJsonLd();
 
   return (
-    <html lang="en" suppressHydrationWarning className={`${fontVariables} h-full`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${fontVariables} dark h-full`}
+    >
       <head>
         <script
           type="application/ld+json"

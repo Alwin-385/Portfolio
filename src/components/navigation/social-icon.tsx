@@ -1,4 +1,5 @@
 import type { SocialIcon } from "@/types";
+import { Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type SocialIconProps = {
@@ -7,6 +8,10 @@ type SocialIconProps = {
 };
 
 export function SocialIcon({ name, className }: SocialIconProps) {
+  if (name === "email") {
+    return <Mail className={cn("size-4", className)} aria-hidden />;
+  }
+
   if (name === "github") {
     return (
       <svg

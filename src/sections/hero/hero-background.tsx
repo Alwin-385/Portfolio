@@ -3,6 +3,8 @@
 import { m, type MotionValue, useMotionValue, useTransform } from "motion/react";
 import { useMemo } from "react";
 
+import { motionPageFade } from "@/animations/motion-variants";
+import { usePageReveal } from "@/hooks/use-scroll-reveal";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
 import { cn } from "@/lib/utils";
 
@@ -44,6 +46,7 @@ export function HeroBackground({
   parallaxY,
 }: HeroBackgroundProps) {
   const prefersReducedMotion = useReducedMotion();
+  const pageReveal = usePageReveal();
   const fallbackX = useMotionValue(0);
   const fallbackY = useMotionValue(0);
   const xSource = parallaxX ?? fallbackX;
@@ -68,11 +71,13 @@ export function HeroBackground({
     >
       <div className="absolute inset-0 bg-bg-primary" />
 
-      <div
+      <m.div
         className={cn(
           "hero-gradient-shift absolute -inset-[20%] opacity-50",
           "bg-[radial-gradient(ellipse_at_30%_20%,var(--accent-blue-muted)_0%,transparent_50%),radial-gradient(ellipse_at_70%_60%,var(--accent-purple-muted)_0%,transparent_45%)]",
         )}
+        variants={motionPageFade}
+        {...pageReveal}
       />
 
       <m.div

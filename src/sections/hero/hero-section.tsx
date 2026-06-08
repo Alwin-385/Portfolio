@@ -39,7 +39,7 @@ export function HeroSection() {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="relative flex flex-1 flex-col justify-center pb-8 pt-[72px]">
+      <div className="relative flex flex-1 flex-col justify-center pb-8 pt-[calc(4.5rem+env(safe-area-inset-top,0px))]">
         <HeroBackground parallaxX={springX} parallaxY={springY} />
         <HeroContent className="py-12 md:py-16" />
       </div>

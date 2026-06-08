@@ -1,46 +1,30 @@
 import type { Variants } from "motion/react";
 
 import { staggerDefaults } from "@/animations/config";
+import {
+  createFadeUp,
+  createScaleIn,
+  motionFadeIn,
+  motionFadeUp,
+  motionFadeUpSm,
+} from "@/animations/motion-variants";
 import type { AnimationPreset, MotionVariantMap } from "@/types";
 
-const hidden = { opacity: 0 };
-const visible = { opacity: 1 };
-
-export const fadeIn: Variants = {
-  hidden: { ...hidden },
-  visible: { ...visible },
-};
-
-export const fadeInUp: Variants = {
-  hidden: { ...hidden, y: 24 },
-  visible: { ...visible, y: 0 },
-};
-
-export const fadeInDown: Variants = {
-  hidden: { ...hidden, y: -24 },
-  visible: { ...visible, y: 0 },
-};
-
+export const fadeIn: Variants = motionFadeIn;
+export const fadeInUp: Variants = motionFadeUp;
+export const fadeInDown: Variants = createFadeUp(-20);
 export const fadeInLeft: Variants = {
-  hidden: { ...hidden, x: -24 },
-  visible: { ...visible, x: 0 },
+  hidden: { opacity: 0, x: -20 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] } },
 };
-
 export const fadeInRight: Variants = {
-  hidden: { ...hidden, x: 24 },
-  visible: { ...visible, x: 0 },
+  hidden: { opacity: 0, x: 20 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] } },
 };
-
-export const scaleIn: Variants = {
-  hidden: { ...hidden, scale: 0.96 },
-  visible: { ...visible, scale: 1 },
-};
-
+export const scaleIn: Variants = createScaleIn();
 export const staggerContainer: Variants = {
   hidden: {},
-  visible: {
-    transition: staggerDefaults,
-  },
+  visible: { transition: staggerDefaults },
 };
 
 export const animationVariants: MotionVariantMap = {
@@ -56,3 +40,6 @@ export const animationVariants: MotionVariantMap = {
 export function getAnimationVariant(preset: AnimationPreset): Variants {
   return animationVariants[preset];
 }
+
+/** @deprecated Use motionFadeUpSm from motion-variants */
+export { motionFadeUpSm as fadeInUpSmall };

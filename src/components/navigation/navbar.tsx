@@ -16,6 +16,8 @@ import {
   pageMaxWidthClass,
 } from "@/components/layout/page-wrapper";
 import { NAV_LINKS } from "@/data/navigation";
+import { motionNavReveal } from "@/animations/motion-variants";
+import { MOTION_EASE } from "@/animations/motion-tokens";
 import { useActiveSection } from "@/hooks/use-active-section";
 import { useNavScrollState } from "@/hooks/use-nav-scroll-state";
 import { cn } from "@/lib/utils";
@@ -35,7 +37,7 @@ export function Navbar() {
     <>
       <m.header
         className={cn(
-          "fixed inset-x-0 top-0 z-50 will-change-transform",
+          "fixed inset-x-0 top-0 z-50 safe-area-top",
           "transition-[background-color,backdrop-filter,border-color,box-shadow] duration-300",
           isScrolled
             ? "border-b border-default bg-bg-primary/70 shadow-elevation-sm backdrop-blur-xl backdrop-saturate-150"
@@ -47,8 +49,8 @@ export function Navbar() {
           opacity: 1,
         }}
         transition={{
-          y: { duration: 0.3, ease: [0.22, 1, 0.36, 1] },
-          opacity: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
+          y: motionNavReveal,
+          opacity: { duration: 0.4, ease: MOTION_EASE.out },
         }}
       >
         <div
@@ -56,7 +58,7 @@ export function Navbar() {
           style={pageContainerStyles}
         >
           <nav
-            className="flex h-[72px] items-center justify-between gap-4"
+            className="flex h-[72px] min-w-0 items-center justify-between gap-2 sm:gap-4"
             aria-label="Main navigation"
           >
             <NavLogo onNavigate={closeMobile} />
@@ -75,7 +77,8 @@ export function Navbar() {
             </ul>
 
             <div className="flex items-center gap-2">
-              <NavActions className="hidden sm:flex" />
+              <NavActions filter="email" className="flex gap-0.5 sm:hidden" />
+              <NavActions className="hidden gap-0.5 sm:flex lg:gap-1" />
               <MobileMenuToggle
                 isOpen={isMobileOpen}
                 onToggle={toggleMobile}

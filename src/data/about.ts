@@ -38,14 +38,30 @@ export type AboutInterest = {
   accent?: "blue" | "purple";
 };
 
+export type AboutStat = {
+  id: string;
+  value: string;
+  label: string;
+};
+
 export const aboutIntro = {
   headline: "Engineering products that think, scale, and ship.",
+  lead: "I'm Alwin Baby — a full-stack developer building at the intersection of modern web engineering and applied AI.",
   paragraphs: [
-    "I'm Alwin Baby — a final-year B.Tech Computer Science student who builds at the intersection of full-stack development and artificial intelligence.",
-    "I don't just write code. I design systems that solve real problems — from AI interview platforms to civic data tools — with the polish of a product engineer and the rigor of a software architect.",
+    "As a final-year B.Tech Computer Science student, I design and ship complete products — from database schema to polished interface — with the rigor of a software architect and the eye of a product designer.",
+    "I don't just write code. I build systems that solve real problems: AI interview platforms, civic data tools, and intelligent dashboards that turn complexity into something effortless to use.",
   ],
+  role: "Full-Stack Developer · AI Applications",
   status: "Final-year B.Tech · Computer Science",
+  available: "Open to opportunities",
 };
+
+export const aboutStats: AboutStat[] = [
+  { id: "focus", value: "AI + Full-Stack", label: "Core focus" },
+  { id: "projects", value: "4+", label: "Shipped projects" },
+  { id: "experience", value: "2+", label: "Industry roles" },
+  { id: "year", value: "2027", label: "Graduating" },
+];
 
 export const aboutFocusAreas: AboutFocusArea[] = [
   {
@@ -121,9 +137,9 @@ export const aboutHighlights: AboutHighlight[] = [
   },
   {
     id: "internship",
-    title: "Professional Experience",
+    title: "Dual Industry Internships",
     description:
-      "Frontend Developer Intern — shipping production UI, collaborating with teams, and learning industry standards.",
+      "Two certified internships — MERN stack at Cynosylix Technology and Frontend at The Nexus Project — shipping real features in agile team environments.",
     icon: Briefcase,
   },
 ];
@@ -132,8 +148,8 @@ export const aboutTimeline: AboutTimelineItem[] = [
   {
     id: "intern",
     role: "Frontend Developer Intern",
-    organization: "Industry Experience",
-    period: "2024 — Present",
+    organization: "Nexus SJCET",
+    period: "May 2025 — June 2025",
     description:
       "Developed responsive interfaces, integrated APIs, and contributed to production codebases in agile team environments.",
   },
@@ -141,7 +157,7 @@ export const aboutTimeline: AboutTimelineItem[] = [
     id: "education",
     role: "B.Tech Computer Science",
     organization: "Final Year",
-    period: "2022 — 2026",
+    period: "2023 — 2027",
     description:
       "Focused on software engineering, data structures, AI/ML fundamentals, and full-stack project development.",
   },

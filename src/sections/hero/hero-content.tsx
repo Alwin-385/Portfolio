@@ -3,14 +3,11 @@
 import { ArrowUpRight } from "lucide-react";
 import { m } from "motion/react";
 
-import {
-  heroFadeIn,
-  heroStaggerContainer,
-  heroStaggerItem,
-} from "@/animations/hero-variants";
 import { MagneticButton } from "@/components/ui/magnetic-button";
 import { SocialIcon } from "@/components/navigation/social-icon";
 import { LabelText } from "@/components/ui/typography";
+import { pageContainerClass, pageContainerStyles } from "@/components/layout/page-wrapper";
+import { aboutIntro } from "@/data/about";
 import { siteConfig } from "@/data/site";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
 import { cn } from "@/lib/utils";
@@ -19,125 +16,115 @@ type HeroContentProps = {
   className?: string;
 };
 
+const STAGGER_DELAY = 0.1;
+
+/** Cinema-style stagger item — blur + lift entrance */
+const cinemaItem = (i: number) => ({
+  initial: { opacity: 0, y: 28, filter: "blur(10px)" },
+  animate: { opacity: 1, y: 0, filter: "blur(0px)" },
+  transition: {
+    duration: 0.75,
+    ease: [0.16, 1, 0.3, 1] as const,
+    delay: 0.1 + i * STAGGER_DELAY,
+  },
+});
+
 export function HeroContent({ className }: HeroContentProps) {
   const prefersReducedMotion = useReducedMotion();
 
-  const motionProps = prefersReducedMotion
-    ? {}
-    : {
-        initial: "hidden" as const,
-        animate: "visible" as const,
-        variants: heroStaggerContainer,
-      };
+  const item = (i: number) =>
+    prefersReducedMotion ? {} : cinemaItem(i);
 
   return (
     <div
       className={cn(
-        "relative z-10 mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8",
+        "relative z-10 mx-auto w-full min-w-0 max-w-4xl",
+        pageContainerClass,
         className,
       )}
+      style={pageContainerStyles}
     >
-      <m.div
-        className="flex w-full flex-col items-stretch gap-6 md:gap-8"
-        {...motionProps}
-      >
-        {/* Status badge */}
-        <m.div
-          className="flex justify-center"
-          variants={prefersReducedMotion ? undefined : heroStaggerItem}
-        >
+      <div className="flex w-full flex-col items-center gap-0 text-center">
+
+        {/* ── 1. Status badge ── */}
+        <m.div className="mb-8" {...item(0)}>
           <span className="inline-flex items-center gap-2 rounded-full border border-default bg-bg-elevated/80 px-3 py-1.5 backdrop-blur-sm">
             <span className="relative flex size-2">
-              <span className="absolute inline-flex size-full animate-ping rounded-full bg-accent-blue opacity-40" />
+              {!prefersReducedMotion ? (
+                <span className="absolute inline-flex size-full animate-ping rounded-full bg-accent-blue opacity-40" />
+              ) : null}
               <span className="relative inline-flex size-2 rounded-full bg-accent-blue" />
             </span>
             <LabelText className="normal-case tracking-wide text-foreground/80">
-              Available for opportunities
+              {aboutIntro.available}
             </LabelText>
           </span>
         </m.div>
 
-        {/* Headline */}
-        <m.div
-          className="w-full text-center"
-          variants={prefersReducedMotion ? undefined : heroStaggerItem}
+        {/* ── 2. Name — gradient, dominant size ── */}
+        <m.h1
+          className="mb-5 font-heading text-hero font-semibold leading-[0.95] tracking-[-0.04em] gradient-accent-text"
+          {...item(1)}
         >
-          <h1 className="font-heading text-hero text-balance tracking-tight">
-            <span className="block text-foreground">{siteConfig.name}</span>
-            <span className="mt-2 block gradient-accent-text">
-              {siteConfig.role}
-            </span>
-          </h1>
-        </m.div>
+          {siteConfig.name}
+        </m.h1>
 
-        {/* Tagline + Description */}
-        <m.div
-          className="mx-auto w-full max-w-3xl space-y-6 md:space-y-8"
-          variants={prefersReducedMotion ? undefined : heroStaggerItem}
+        {/* ── 3. Role · Tagline ── */}
+        <m.p
+          className="mb-10 text-[clamp(1.125rem,2vw+0.375rem,1.5rem)] font-medium leading-snug"
+          {...item(2)}
         >
-          <div
-            className="mx-auto h-px w-20 bg-gradient-to-r from-transparent via-accent-blue/60 to-transparent md:w-24"
-            aria-hidden
-          />
+          <span className="text-muted-foreground">{siteConfig.role}</span>
+          <span className="mx-3 text-border-strong" aria-hidden>·</span>
+          <span className="text-foreground/90">{siteConfig.tagline}</span>
+        </m.p>
 
-          <div className="hero-tagline w-full" aria-label={siteConfig.tagline}>
-            <span className="hero-tagline-primary block">
-              {siteConfig.heroTagline.primary}
-            </span>
-            <span className="hero-tagline-accent block gradient-accent-text">
-              {siteConfig.heroTagline.accent}
-            </span>
-          </div>
-
-          <div className="hero-description-panel w-full">
-            <p className="hero-description w-full text-pretty md:text-center">
-              {siteConfig.heroDescription}
-            </p>
-          </div>
-        </m.div>
-
-        {/* CTAs */}
-        <m.div
-          className="flex w-full flex-col items-center justify-center gap-3 pt-2 sm:flex-row sm:flex-wrap"
-          variants={prefersReducedMotion ? undefined : heroStaggerItem}
+        {/* ── 4. Description ── */}
+        <m.p
+          className="mb-12 w-full max-w-[56ch] text-pretty text-center text-base leading-[1.8] text-muted-foreground sm:text-[1.0625rem]"
+          {...item(3)}
         >
-          <MagneticButton href="#projects" variant="accent">
+          {siteConfig.heroDescription}
+        </m.p>
+
+        {/* ── 5. CTAs ── */}
+        <m.div
+          className="flex w-full flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center"
+          {...item(4)}
+        >
+          <MagneticButton href="#featured-project" variant="accent" className="mobile-full-width">
             View Projects
             <ArrowUpRight className="size-4" aria-hidden />
           </MagneticButton>
-          <MagneticButton href="#resume" variant="secondary">
+          <MagneticButton href="#resume" variant="secondary" className="mobile-full-width">
             View Resume
           </MagneticButton>
           <MagneticButton
             href={siteConfig.author.github ?? "https://github.com"}
             variant="ghost"
             external
-            className="gap-2.5"
+            className="mobile-full-width gap-2.5"
           >
             <SocialIcon name="github" />
             GitHub
           </MagneticButton>
         </m.div>
-      </m.div>
+      </div>
 
-      {/* Scroll hint */}
+      {/* ── Scroll hint ── */}
       {!prefersReducedMotion ? (
         <m.div
-          className="mt-12 flex justify-center md:mt-16"
-          variants={heroFadeIn}
-          initial="hidden"
-          animate="visible"
+          className="mt-16 flex justify-center"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 1.0 }}
         >
-          <div className="flex flex-col items-center gap-2 text-metadata text-muted-foreground">
-            <span>Scroll to explore</span>
+          <div className="flex flex-col items-center gap-2">
+            <span className="text-metadata text-muted-foreground/50">scroll</span>
             <m.span
-              className="block h-8 w-px bg-gradient-to-b from-accent-blue/60 to-transparent"
-              animate={{ scaleY: [1, 0.5, 1], opacity: [0.5, 1, 0.5] }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
+              className="block h-12 w-px bg-gradient-to-b from-accent-blue/70 to-transparent"
+              animate={{ scaleY: [1, 0.3, 1], opacity: [0.5, 1, 0.5] }}
+              transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut" }}
               aria-hidden
             />
           </div>

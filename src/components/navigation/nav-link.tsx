@@ -45,11 +45,12 @@ export function NavLink({
       <a
         href={item.href}
         onClick={handleClick}
-        aria-current={isActive ? "page" : undefined}
+        aria-current={isActive ? "location" : undefined}
         className={cn(
-          "group relative inline-flex items-center rounded-md px-3 py-2 text-sm font-medium transition-colors outline-none",
+          "group relative inline-flex items-center rounded-md px-3 py-2 text-sm font-medium transition-colors outline-none touch-manipulation",
           "focus-visible:ring-2 focus-visible:ring-accent-blue/40",
-          layout === "vertical" && "w-full px-4 py-3 text-lg",
+          layout === "vertical" &&
+            "touch-target-inline min-h-12 w-full px-4 py-3 text-lg",
           isActive
             ? "text-foreground"
             : "text-muted-foreground hover:text-foreground",

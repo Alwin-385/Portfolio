@@ -7,6 +7,10 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { NavActions } from "@/components/navigation/nav-actions";
 import { NavLink } from "@/components/navigation/nav-link";
 import { NavLogo } from "@/components/navigation/nav-logo";
+import {
+  pageContainerClass,
+  pageContainerStyles,
+} from "@/components/layout/page-wrapper";
 import { NAV_LINKS } from "@/data/navigation";
 import { useActiveSection } from "@/hooks/use-active-section";
 import { cn } from "@/lib/utils";
@@ -23,21 +27,47 @@ function MobileMenuPanel({
   activeSection,
 }: MobileMenuProps & { activeSection: string }) {
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!isOpen) return;
 
     const previousOverflow = document.body.style.overflow;
+    const main = document.getElementById("main-content");
+
     document.body.style.overflow = "hidden";
+    main?.setAttribute("inert", "");
     closeButtonRef.current?.focus();
 
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") onClose();
+      if (event.key === "Escape") {
+        onClose();
+        return;
+      }
+
+      if (event.key !== "Tab" || !panelRef.current) return;
+
+      const focusables = panelRef.current.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      );
+      if (focusables.length === 0) return;
+
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => {
       document.body.style.overflow = previousOverflow;
+      main?.removeAttribute("inert");
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [isOpen, onClose]);
@@ -57,27 +87,34 @@ function MobileMenuPanel({
           />
 
           <m.div
+            ref={panelRef}
             id="mobile-navigation"
             role="dialog"
             aria-modal="true"
             aria-label="Mobile navigation menu"
             className={cn(
               "fixed inset-0 z-50 flex flex-col lg:hidden",
-              "bg-bg-primary/95 backdrop-blur-xl",
+              "bg-bg-primary/95 backdrop-blur-xl safe-area-top safe-area-x",
             )}
             initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="flex items-center justify-between border-b border-default px-6 py-4">
+            <div
+              className={cn(
+                pageContainerClass,
+                "flex items-center justify-between border-b border-default py-3",
+              )}
+              style={pageContainerStyles}
+            >
               <NavLogo onNavigate={onClose} />
               <button
                 ref={closeButtonRef}
                 type="button"
                 onClick={onClose}
                 className={cn(
-                  "inline-flex size-10 items-center justify-center rounded-[var(--radius-button-token)]",
+                  "touch-target touch-manipulation inline-flex items-center justify-center rounded-[var(--radius-button-token)]",
                   "border border-default text-foreground transition-colors",
                   "hover:bg-bg-secondary focus-visible:ring-2 focus-visible:ring-accent-blue/40",
                 )}
@@ -88,7 +125,11 @@ function MobileMenuPanel({
             </div>
 
             <nav
-              className="flex flex-1 flex-col justify-between overflow-y-auto px-6 py-8"
+              className={cn(
+                pageContainerClass,
+                "flex flex-1 flex-col justify-between overflow-y-auto py-6 safe-area-bottom",
+              )}
+              style={pageContainerStyles}
               aria-label="Mobile primary navigation"
             >
               <ul className="flex list-none flex-col gap-1">
@@ -127,7 +168,7 @@ export function MobileMenuToggle({ isOpen, onToggle }: MobileMenuToggleProps) {
       type="button"
       onClick={onToggle}
       className={cn(
-        "inline-flex size-10 items-center justify-center rounded-[var(--radius-button-token)] lg:hidden",
+        "touch-target touch-manipulation inline-flex items-center justify-center rounded-[var(--radius-button-token)] lg:hidden",
         "border border-default text-foreground transition-colors",
         "hover:bg-bg-secondary focus-visible:ring-2 focus-visible:ring-accent-blue/40",
       )}

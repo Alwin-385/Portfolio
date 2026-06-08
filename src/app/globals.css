@@ -4,6 +4,10 @@
 @import "../styles/tokens.css";
 @import "../styles/design-tokens.css";
 @import "../styles/hero.css";
+@import "../styles/intervai.css";
+@import "../styles/sections.css";
+@import "../styles/motion.css";
+@import "../styles/mobile.css";
 @import "lenis/dist/lenis.css";
 
 @custom-variant dark (&:is(.dark *));
@@ -133,6 +137,9 @@
 
   html {
     @apply font-sans scroll-smooth;
+    overflow-x: clip;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 
   html.lenis,
@@ -154,6 +161,8 @@
 
   body {
     @apply bg-bg-primary text-foreground;
+    overflow-x: clip;
+    min-width: 0;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
