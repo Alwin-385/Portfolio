@@ -33,8 +33,8 @@ export type ResumeEducation = {
 };
 
 export const resumeFile = {
-  filename: "RESUME.pdf",
-  url: "/RESUME.pdf",
+  filename: "alwin-baby-resume.pdf",
+  url: "/alwin-baby-resume.pdf",
   /** Optional: add public/RESUME-cover.png for a static preview thumbnail */
   previewImage: undefined as string | undefined,
 } as const;
